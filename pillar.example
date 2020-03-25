@@ -1,5 +1,5 @@
 forever:
-  nodesource_url: 
+  nodesource_url: https://rpm.nodesource.com/setup_12.x
   APP_NAME:
     user: APP_USER
     location: /APP_LOCATION
