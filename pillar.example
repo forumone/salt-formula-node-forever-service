@@ -1,0 +1,8 @@
+forever:
+  nodesource_url: 
+  APP_NAME:
+    user: APP_USER
+    location: /APP_LOCATION
+    environment: APP_ENVIRONMENT
+    configdir: /APP_CONFIG_DIR
+    watchdirectory: /APP_WATCH_DIR
