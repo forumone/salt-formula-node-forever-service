@@ -1,6 +1,6 @@
 {% set pget = salt['pillar.get'] %}
 # Install nodejs and npm 
-{% set ppa = pget('forever:nodesource_url') %}
+{% set ppa = 'https://rpm.nodesource.com/setup_12.x' %}
 
 "curl -sL {{ ppa }} | bash - ":
   cmd.run:
@@ -22,12 +22,12 @@
      - creates: /usr/bin/forever-service
      - only_if: /usr/bin/npm
 
-{% for app in pget('forever:Name', {}) %}
-{% set user = pget('forever:Name:'+ app +':user') %}
-{% set location = pget('forever:Name:'+ app +':location') %}
-{% set environment = pget('forever:Name:'+ app +':environment') %}
-{% set configdir = pget('forever:Name:'+ app +':configdir') %} 
-{% set watchdirectory = pget('forever:Name:'+ app +':watchdirectory') %}
+{% for app in pget('forever', {}) %}
+{% set user = pget('forever:'+ app +':user') %}
+{% set location = pget('forever:'+ app +':location') %}
+{% set environment = pget('forever:'+ app +':environment') %}
+{% set configdir = pget('forever:'+ app +':configdir') %} 
+{% set watchdirectory = pget('forever:'+ app +':watchdirectory') %}
 
 'cd /home/{{ user }} && forever-service install --start -e "NODE_CONFIG_DIR={{ configdir }} NODE_ENV={{ environment }}" -r {{ user }} -s {{ location }} -f " --watchDirectory={{ watchdirectory }} -w" {{ app }}':
   cmd.run:
