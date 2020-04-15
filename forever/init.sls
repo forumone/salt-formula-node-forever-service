@@ -1,6 +1,5 @@
 {% set pget = salt['pillar.get'] %}
 # Install nodejs and npm 
-#{% set ppa = 'https://rpm.nodesource.com/setup_12.x' %}
 {% set ppa = pget('forever:nodesource_url') %}
 
 "curl -sL {{ ppa }} | bash - ":
