@@ -22,7 +22,7 @@
      - creates: /usr/bin/forever-service
      - only_if: /usr/bin/npm
 
-{% for app in pget('forever', {}) %}
+{% for app in pget('forever:Name', {}) %}
 {% set user = pget('forever:'+ app +':user') %}
 {% set location = pget('forever:'+ app +':location') %}
 {% set environment = pget('forever:'+ app +':environment') %}
