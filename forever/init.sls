@@ -7,7 +7,7 @@
     - creates: /etc/yum.repos.d/nodesource-el7.repo
     - only_if: /usr/lib64/nginx
 
-"yum install -y forever && yum install -y npm":
+"yum install -y nodejs npm":
   cmd.run:
     - creates: /usr/bin/node
     - only_if: /etc/yum.repos.d/nodesource-el7.repo
